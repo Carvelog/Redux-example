@@ -15,38 +15,24 @@ const Counter = () => {
 
   const incrementHandler = () => {
     // to dispatch the action that we want to execute we will use the function provided by the hook useDispatch
-    // dispatch({type: 'INCREMENT'})
-
-    // this example we are using redux toolkit
-    dispatch(counterActions.increment())
+    dispatch({type: 'INCREMENT'})
   }
 
   const decrementHandler = () => {
-    // dispatch({type: 'DECREMENT'})
-
-    // this example we are using redux toolkit
-    // in this case we call the action directly through the counterActions created in store.js and execute it as a method, because "increment" in a method that when it is executed create a full action object
-    dispatch(counterActions.decrement())
+    dispatch({type: 'DECREMENT'})
   }
 
   const increaseHandler = () => {
-    // dispatch({type: 'INCREASE', amount: 10})
-
-    // this example we are using redux toolkit
-    dispatch(counterActions.increase(10)) // {type: uid, payload: 10} redux toolkit create by default this object with the payload that we want to pass to our reducer
+    dispatch({type: 'INCREASE', amount: 10})
   }
 
   const decreaseHandler = () => {
-    // this example we are using redux toolkit
-    dispatch(counterActions.decrease(10)) // {type: uid, payload: 10} redux toolkit create by default this object with the payload that we want to pass to our reducer
+    dispatch({type: 'DECREASE', amount: 10})
   }
   
   
   const toggleCounterHandler = () => {
-    // dispatch({type: 'TOGGLE'})
-
-    // this example we are using redux toolkit
-    dispatch(counterActions.toggleCounter())
+    dispatch({type: 'TOGGLE'})
   };
 
   return (
