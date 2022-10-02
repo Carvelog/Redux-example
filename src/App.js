@@ -9,7 +9,7 @@ import Notification from './components/UI/Notification'
 // The option that we are going to use to handle the HTTP requests in this example is with the action creators, implemented in the .../store/cart.js file, so we will not need this import anymore.
 // NOTE: This approach only works if we are using Redux toolkit
 // import { uiActions } from './store/ui';
-import { sendCartData } from './store/cart'
+import { fetchCartData, sendCartData } from './store/cart'
 
 let isInitial = true
 
@@ -65,13 +65,18 @@ function App() {
   // }, [cart])
 
   useEffect(() => {
+    dispatch(fetchCartData())
+  }, [dispatch])
+
+  useEffect(() => {
     if(isInitial) {
       isInitial = false
       return
     }
 
-    dispatch(sendCartData(cart))
-  }, [cart])
+    if(cart.changed)
+      dispatch(sendCartData(cart))
+  }, [cart, dispatch])
 
   return (
     <Fragment>
